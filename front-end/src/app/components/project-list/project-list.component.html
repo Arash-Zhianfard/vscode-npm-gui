@@ -38,24 +38,26 @@
           <thead>
             <tr>
               <th colspan="1">Project Name</th>
-              <th colspan="5" style="text-align: left;">{{project.projectName}}</th>
+              <th colspan="6" style="text-align: left;">{{project.projectName}}</th>
             </tr>
             <tr>
               <th colspan="1">Project Path</th>
-              <th colspan="5" style="text-align: left;">{{project.projectPath}}</th>
+              <th colspan="6" style="text-align: left;">{{project.projectPath}}</th>
             </tr>
             <tr>
               <th style="width:30%;">Package Name</th>
+              <th style="width:8%;">Source Name</th>
               <th style="width:10%;">Installed Version</th>
               <th style="width:10%;">Versions</th>
-              <th style="width:10%;">Is Updated</th>
-              <th style="width:10%;">Newer Version</th>
+              <th style="width:6%;">Is Updated</th>
+              <th style="width:6%;">Newer Version</th>
               <th style="width:30%;">Actions</th>
             </tr>
           </thead>
           <tbody>
-            <tr class="tr-package" *ngFor="let package of project.packages" [hidden]="!seatchFilter(package.packageName)">
+            <tr class="tr-package" *ngFor="let package of project.packages" [hidden]="!searchFilter(package.packageName)">
               <td>{{package.packageName}}</td>
+              <td>{{package.sourceName}}</td>
               <td>{{package.packageVersion}}</td>
               <td>
                 <!-- <select class="versions-option">

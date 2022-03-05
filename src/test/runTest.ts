@@ -1,6 +1,6 @@
 import * as path from 'path';
 
-import { runTests } from 'vscode-test';
+import { runTests } from '@vscode/test-electron';
 
 async function main() {
   try {
@@ -10,7 +10,7 @@ async function main() {
 
     // The path to test runner
     // Passed to --extensionTestsPath
-    const extensionTestsPath = path.resolve(__dirname, './index');
+    const extensionTestsPath = path.resolve(__dirname, './suite/index');
 
     // Download VS Code, unzip it and run the integration test
     await runTests({ extensionDevelopmentPath, extensionTestsPath });
@@ -21,3 +21,7 @@ async function main() {
 }
 
 main();
+
+export function getTestPath(fileName: string): string {
+  return path.resolve(`${__dirname}/../../src/test/test-data/${fileName}`);
+}
